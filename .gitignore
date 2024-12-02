@@ -1,0 +1,18 @@
+# Ignore everything
+*
+
+# Unignore all files with extensions
+!*.*
+!*/
+
+# Ignore unwanted files and directories explicitly
+*.vscode/
+*.exe
+a.out
+
+build/
+
+# Keep important files
+!Makefile
+!*.md
+!.gitignore
