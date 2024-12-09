@@ -1,11 +1,18 @@
 #include "Customer.h"
 
-int Customer::nextId = 1;
+#include <string>
 
-Customer::Customer(int customerId, std::string customerName, std::string adress,int pin, int tagId, std::string verificationPhrase)
-    : customerId(customerId), customerName(customerName), adress(adress), pin(pin), tagId(tagId), verificationPhrase(verificationPhrase) {}
+Customer::Customer(std::string customerName, std::string address, int pin, int tagId,
+                   std::string verificationPhrase)
+    : customerName(customerName),
+      address(address),
+      pin(pin),
+      tagId(tagId),
+      verificationPhrase(verificationPhrase)
+{
+}
 
-Customer::Customer() : customerId(nextId++), customerName(""), adress(""), pin(0), tagId(0), verificationPhrase("") {}
+Customer::Customer() : customerName(""), address(""), pin(0), tagId(0), verificationPhrase("") {}
 
 Customer::~Customer() {}
 
@@ -16,55 +23,53 @@ int Customer::getId() const
 
 std::string Customer::getName() const
 {
-
     return customerName;
 }
 
 std::string Customer::getCity() const
 {
-    return adress;
+    return address;
 }
 
 int Customer::getPin() const
 {
     return pin;
 }
-int Customer::getTagId() const 
+int Customer::getTagId() const
 {
     return tagId;
 }
-std::string Customer::getVerificationPhrase() const 
+std::string Customer::getVerificationPhrase() const
 {
     return verificationPhrase;
 }
 
-void Customer::setId(int id) 
+void Customer::setId(int id)
 {
     customerId = id;
 }
 
-void Customer::setName(const std::string& name) 
+void Customer::setName(const std::string& name)
 {
     customerName = name;
 }
 
-void Customer::setCity(const std::string& city) 
+void Customer::setCity(const std::string& city)
 {
-    adress = city;
+    address = city;
 }
 
-void Customer::setPin(int pinCode) 
+void Customer::setPin(int pinCode)
 {
     pin = pinCode;
 }
 
-void Customer::setTagId(int tag) 
+void Customer::setTagId(int tag)
 {
     tagId = tag;
 }
 
-void Customer::setVerificationPhrase(const std::string& phrase) 
+void Customer::setVerificationPhrase(const std::string& phrase)
 {
     verificationPhrase = phrase;
 }
-

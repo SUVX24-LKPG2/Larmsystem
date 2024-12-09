@@ -60,7 +60,7 @@ void Menu::registerCustomer()
     customer.setVerificationPhrase(phrase);
 
     std::cout << "\nCustomer Information:\n";
-    std::cout << "ID: " << customer.getId() << "\n";
+    //std::cout << "ID: " << customer.getId() << "\n";
     std::cout << "Name: " << customer.getName() << "\n";
     std::cout << "Address: " << customer.getCity() << "\n";
     std::cout << "PIN Code: " << customer.getPin() << "\n";

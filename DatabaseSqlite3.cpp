@@ -3,10 +3,7 @@
 #include <iostream>
 
 DatabaseSqlite3::DatabaseSqlite3(const std::string& filename) : Database(filename) {}
-void DatabaseSqlite3::createEmptyDatabase()
-{
-    // code
-}
+
 void DatabaseSqlite3::saveCustomer(const Customer& customer)
 {
     // code

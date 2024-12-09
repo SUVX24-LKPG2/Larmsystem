@@ -10,10 +10,7 @@
 
 using json = nlohmann::json;
 
-DatabaseJson::DatabaseJson(const std::string& db) : Database{db}
-{
-    createEmptyDatabase();
-}
+DatabaseJson::DatabaseJson(const std::string& db) : Database{db} {}
 
 void DatabaseJson::saveCustomer(const Customer& customer)
 {
@@ -25,10 +22,23 @@ void DatabaseJson::saveCustomer(const Customer& customer)
         inputFile.close();
     }
 
-    json custJson = {
-        {"id", customer.getId()},       {"name", customer.getName()},
-        {"city", customer.getCity()},   {"pin", customer.getPin()},
-        {"tagId", customer.getTagId()}, {"verificationPhrase", customer.getVerificationPhrase()}};
+    // Check if the last_id key exists in the json object
+    if (!j.contains("last_id"))
+    {
+        j["last_id"] = 0;
+    }
+
+    // Increment the last_id and add the new customer to the json object
+    int newId = j["last_id"].get<int>() + 1;
+    j["last_id"] = newId;
+
+    // Add the new customer to the json object
+    json custJson = {{"id", newId},
+                     {"name", customer.getName()},
+                     {"city", customer.getCity()},
+                     {"pin", customer.getPin()},
+                     {"tagId", customer.getTagId()},
+                     {"verificationPhrase", customer.getVerificationPhrase()}};
     j["customers"].push_back(custJson);
 
     std::ofstream outputFile(getFilename());
@@ -51,21 +61,6 @@ void DatabaseJson::saveComponent(const Component& component)
 void DatabaseJson::logAlarmEvent(const AlarmEvent& alarmEvent)
 {
     // Log alarm event to database
-}
-
-void DatabaseJson::createEmptyDatabase()
-{
-    json j;
-    std::ofstream file{getFilename()};
-    if (!file)
-    {
-        std::cerr << "Failed to create database file\n";
-        exit(1);
-    }
-    else
-    {
-        file << j.dump(4);
-    }
 }
 
 std::vector<Customer> DatabaseJson::getCustomers()

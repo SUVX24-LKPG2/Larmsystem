@@ -16,7 +16,6 @@ public:
     void saveCustomer(const Customer& customer) override;
     void saveComponent(const Component& component) override;
     void logAlarmEvent(const AlarmEvent& alarmEvent) override;
-    void createEmptyDatabase() override;
     std::vector<Customer> getCustomers() override;
 };
 
