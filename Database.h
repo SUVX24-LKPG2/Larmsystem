@@ -10,9 +10,9 @@ class Database {
     public: 
         Database(std::string filename) : filename(filename) {}
         virtual void CreateEmptyDatabase() = 0;
-        virtual std::array<Customer> saveCustomer() = 0;
-        virtual std::array<Component> saveComponent() = 0;
-        virtual std::array<AlarmEvent> logAlarmEvent() = 0;
+        virtual void saveCustomer(const Customer& customer) = 0;
+        virtual void saveComponent(const Component& component) = 0;
+        virtual void logAlarmEvent(const AlarmEvent& alarmevent) = 0;
         virtual std::list <Customer> getCustomers() = 0;
         virtual ~Database();
 };
