@@ -2,7 +2,7 @@
 
 #include "Menu.h"
 #include "Settings.h"
-//#include "Database.h"
+#include "Database.h"
 
 int main()
 {
