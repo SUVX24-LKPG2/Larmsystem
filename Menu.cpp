@@ -1,9 +1,11 @@
 #include "Menu.h"
+#include "Customer.h"
 
 #include <iostream>
 #include <memory>
 #include <string>
 #include <string_view>
+#include <vector>
 
 #include "Database.h"
 
@@ -32,19 +34,26 @@ void Menu::getUserInput()
 void Menu::registerCustomer()
 {
     // std::unique_ptr<Customer> customer = std::make_unique<Customer>();
-    Customer customer;
+    
+    std::vector<Customer> customers;
+    char choice;
+    do {
+        Menu::clearScreen();
+        std::cout << "Enter Customer name: ";
+        std::cin.ignore();
+        std::getline(std::cin, name);
+        std::cout << "Enter Customer Address: ";
+        std::getline(std::cin, address);
 
-    Menu::clearScreen();
-    std::string name;
-    std::cout << "Register name: ";
-    std::cin >> name;
-    customer.setName(name);
-    std::string address;
-    std::cout << "Address: ";
-    std::cin >> address;
-    customer.setAddress(address);
-    Menu::getUserInput();
-    m_db->saveCustomer(customer);
+        Customer customer(name, address);
+        customers.push_back(customer);
+
+        std::cout << "Customer added successfully with ID: " << customer.getCustomerId() << "\n";
+
+        std::cout << "Do you want to add another customer? (y/n): ";
+        std::cin >> choice;
+        } while (choice == 'y' || choice == 'Y');
+
 }
 
 void Menu::registerComponent()

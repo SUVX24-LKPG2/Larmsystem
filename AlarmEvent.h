@@ -13,7 +13,7 @@ private:
 
 public:
     AlarmEvent();
-    AlarmEvent(const string& type, tm& date, tm& time, string& message);
+    AlarmEvent(const string& type, const tm& date, const tm& time, const string& message);
     string getAlarmType() const;
     void setAlarmType(const string& type);
     tm getAlarmDate() const;
@@ -24,12 +24,5 @@ public:
     void setAlarmMessage(const string& Message);
 
 }
-
-
-
-
-
-
-
 
 #endif
