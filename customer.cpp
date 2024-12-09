@@ -3,11 +3,11 @@
 int Customer::nextId = 1;
 
 Customer::Customer(int customerId, std::string customerName, std::string adress,int pin, int tagId, std::string verificationPhrase)
-    : customerId(customerId), customerName(customerName), adress(adress),
-      pin(0), tagId(tagId), verificationPhrase(verificationPhrase) {}
+    : customerId(customerId), customerName(customerName), adress(adress), pin(pin), tagId(tagId), verificationPhrase(verificationPhrase) {}
 
-Customer::Customer()
-    : customerId(nextId++), customerName(""), adress(""), pin(0), tagId(0), verificationPhrase("") {}
+Customer::Customer() : customerId(nextId++), customerName(""), adress(""), pin(0), tagId(0), verificationPhrase("") {}
+
+Customer::~Customer() {}
 
 int Customer::getId() const
 {
@@ -63,7 +63,7 @@ void Customer::setTagId(int tag)
     tagId = tag;
 }
 
-void Customer::setCity(const std::string& phrase) 
+void Customer::setVerificationPhrase(const std::string& phrase) 
 {
     verificationPhrase = phrase;
 }
