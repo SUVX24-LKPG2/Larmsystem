@@ -11,7 +11,7 @@
 class DatabaseSqlite3 : public Database
 {
 public:
-    DatabaseSqlite3(std::string filename) : Database(filename) {}
+    DatabaseSqlite3(const std::string& filename);
     void createEmptyDatabase() override;
     void saveCustomer(const Customer& customer) override;
     void saveComponent(const Component& component) override;

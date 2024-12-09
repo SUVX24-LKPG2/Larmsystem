@@ -2,8 +2,7 @@
 
 int Customer::nextId = 1;
 
-Customer::Customer(int customerId, std::string customerName, std::string address,
-                   int tagId, std::string verificationPhrase)
+Customer::Customer(int customerId, std::string customerName, std::string adress,int tagId, std::string verificationPhrase)
     : customerId(customerId), customerName(customerName), address(address),
       pin(0), tagId(tagId), verificationPhrase(verificationPhrase) {}
 
@@ -59,7 +58,7 @@ void Customer::setPin(int pinCode)
     pin = pinCode;
 }
 
-void Customer::setTag(int tag) 
+void Customer::setTagId(int tag) 
 {
     tagId = tag;
 }

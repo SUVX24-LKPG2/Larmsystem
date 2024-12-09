@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-DatabaseSqlite3::DatabaseSqlite3(std::string filename) : Database(filename) {}
+DatabaseSqlite3::DatabaseSqlite3(const std::string& filename) : Database(filename) {}
 void DatabaseSqlite3::createEmptyDatabase()
 {
     // code
@@ -21,7 +21,7 @@ void DatabaseSqlite3::logAlarmEvent(const AlarmEvent& alarmevent)
 }
 std::vector<Customer> getCustomers()
 {
-    // code
+    return {};
 }
 DatabaseSqlite3::~DatabaseSqlite3()
 {
