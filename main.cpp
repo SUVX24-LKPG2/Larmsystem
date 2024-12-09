@@ -4,6 +4,7 @@
 #include "Settings.h"
 #include "Database.h"
 #include "DatabaseJson.h"
+#include "DatabaseSqlite3.h"
 
 int main()
 {
