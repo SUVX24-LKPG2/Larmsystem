@@ -2,8 +2,8 @@
 
 int Customer::nextId = 1;
 
-Customer::Customer(int customerId, std::string customerName, std::string adress,int tagId, std::string verificationPhrase)
-    : customerId(customerId), customerName(customerName), address(address),
+Customer::Customer(int customerId, std::string customerName, std::string adress,int pin, int tagId, std::string verificationPhrase)
+    : customerId(customerId), customerName(customerName), adress(adress),
       pin(0), tagId(tagId), verificationPhrase(verificationPhrase) {}
 
 Customer::Customer()
