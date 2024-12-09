@@ -6,6 +6,7 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <limits>
 
 #include "Database.h"
 
@@ -33,13 +34,15 @@ void Menu::getUserInput()
 
 void Menu::registerCustomer()
 {
-    // std::unique_ptr<Customer> customer = std::make_unique<Customer>();
     Customer customer;
 
     std::string name, address, phrase;
     int pin, tagId;
 
+    Menu::clearScreen();
+
     std::cout << "Enter Customer Name: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, name);
 
     std::cout << "Enter Customer Address: ";
@@ -50,9 +53,9 @@ void Menu::registerCustomer()
 
     std::cout << "Enter Tag ID: ";
     std::cin >> tagId;
-    std::cin.ignore();
 
     std::cout << "Enter Verification Phrase: ";
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, phrase);
 
     customer.setName(name);
@@ -70,6 +73,8 @@ void Menu::registerCustomer()
     std::cout << "Verification Phrase: " << customer.getVerificationPhrase() << "\n"; 
 
     m_db->saveCustomer(customer);
+
+    getUserInput();
 
 }
 

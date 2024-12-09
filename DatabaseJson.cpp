@@ -27,11 +27,12 @@ void DatabaseJson::saveCustomer(const Customer& customer)
     }
 
     json custJson;
-    j["customers"].push_back(custJson);
-    j = json{
+    custJson = json{
         {"id", customer.getId()},       {"name", customer.getName()},
         {"city", customer.getCity()},   {"pin", customer.getPin()},
         {"tagId", customer.getTagId()}, {"verificationPhrase", customer.getVerificationPhrase()}};
+    j["customers"].push_back(custJson);
+    
     std::ofstream outputFile(getFilename());
     if (outputFile.is_open())
     {
