@@ -19,7 +19,7 @@ void DatabaseSqlite3::logAlarmEvent(const AlarmEvent& alarmevent)
 {
     // code
 }
-std::vector<Customer> getCustomers()
+std::vector<Customer> DatabaseSqlite3::getCustomers()
 {
     return {};
 }
