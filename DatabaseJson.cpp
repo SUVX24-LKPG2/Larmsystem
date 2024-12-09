@@ -25,8 +25,7 @@ void DatabaseJson::saveCustomer(const Customer& customer)
         inputFile.close();
     }
 
-    json custJson;
-    custJson = json{
+    json custJson = {
         {"id", customer.getId()},       {"name", customer.getName()},
         {"city", customer.getCity()},   {"pin", customer.getPin()},
         {"tagId", customer.getTagId()}, {"verificationPhrase", customer.getVerificationPhrase()}};

@@ -1,5 +1,6 @@
 #include "Menu.h"
 
+#include <cstdlib>
 #include <iostream>
 #include <limits>
 #include <memory>
@@ -9,12 +10,6 @@
 
 #include "Customer.h"
 #include "Database.h"
-
-#ifdef _WIN32
-#    include <windows.h>
-#else
-#    include <unistd.h>
-#endif
 
 void Menu::clearScreen()
 {
@@ -28,7 +23,7 @@ void Menu::clearScreen()
 void Menu::getUserInput()
 {
     std::cout << "Press a key to continue..." << std::endl;
-    std::cin.ignore();
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
 }
 
@@ -55,7 +50,7 @@ void Menu::registerCustomer()
     std::cin >> tagId;
 
     std::cout << "Enter Verification Phrase: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, phrase);
 
     customer.setName(name);
