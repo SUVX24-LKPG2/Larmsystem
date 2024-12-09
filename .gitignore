@@ -9,6 +9,9 @@
 *.vscode/
 *.exe
 a.out
+settings.json
+database.json
+database.db
 
 build/
 
