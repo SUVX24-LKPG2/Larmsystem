@@ -1,7 +1,8 @@
-#include <iostream> 
-#include "DatabaseSqlite3.h"   
-    
-DatabaseSqlite3::DatabaseSqlite3(std::string filename) :Database(filename) {}
+#include "DatabaseSqlite3.h"
+
+#include <iostream>
+
+DatabaseSqlite3::DatabaseSqlite3(std::string filename) : Database(filename) {}
 void DatabaseSqlite3::createEmptyDatabase()
 {
     // code
