@@ -6,13 +6,23 @@ using namespace std;
 class AlarmEvent
 {
 private: 
-    string alarmtyp;
+    string alarmType;
     tm alarmDate;
     tm alarmTime;
     string alarmMessage;
 
 public:
-    AlarmEvent(const string& type, tm& alarmDate, tm& alarmTime, string& alarmMessage);
+    AlarmEvent();
+    AlarmEvent(const string& type, tm& date, tm& time, string& message);
+    string getAlarmType() const;
+    void setAlarmType(const string& type);
+    tm getAlarmDate() const;
+    void setAlarmDate(const tm& date);
+    tm getAlarmTime() const;
+    void setAlarmTime(const tm& time);
+    string getAlarmMessage() const;
+    void setAlarmMessage(const string& Message);
+
 }
 
 
