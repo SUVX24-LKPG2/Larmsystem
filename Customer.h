@@ -10,6 +10,7 @@ std::string adress;
 int pin;
 int tagId;
 std::string verificationPhrase;
+static int nextId;
  
 public: 
     Customer(int customerId, std::string customerName,std::string adress,int pin, 
@@ -17,7 +18,7 @@ public:
     adress(adress), pin(pin), tagId(tagId), verificationPhrase(verificationPhrase)  {}
    
    
-    Customer() : customerId(0), customerName(""), adress(""), pin(0), tagId(0), verificationPhrase("")  {}
+    Customer() : customerId(nextId++), customerName(""), adress(""), pin(0), tagId(0), verificationPhrase("")  {}
 
     int getId() const { return customerId; }
     std::string getName() const { return customerName; }
@@ -33,4 +34,6 @@ public:
     void setName(int tag) { tagId = tag; }
     void setCity(const std::string& phrase) { verificationPhrase = phrase; }
 };
+
+int CustomerId = 1;
 #endif
