@@ -8,6 +8,7 @@
 #include <string_view>
 #include <vector>
 
+#include "Component.h"
 #include "Customer.h"
 #include "Database.h"
 
@@ -23,8 +24,12 @@ void Menu::clearScreen()
 void Menu::getUserInput()
 {
     std::cout << "Press a key to continue..." << std::endl;
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::cin.get();
+}
+
+void Menu::cinIgnore()
+{
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 }
 
 void Menu::registerCustomer()
@@ -37,7 +42,7 @@ void Menu::registerCustomer()
     Menu::clearScreen();
 
     std::cout << "Enter Customer Name: ";
-    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    Menu::cinIgnore();
     std::getline(std::cin, name);
 
     std::cout << "Enter Customer Address: ";
@@ -45,12 +50,13 @@ void Menu::registerCustomer()
 
     std::cout << "Enter PIN Code: ";
     std::cin >> pin;
+    Menu::cinIgnore();
 
     std::cout << "Enter Tag ID: ";
     std::cin >> tagId;
+    Menu::cinIgnore();
 
     std::cout << "Enter Verification Phrase: ";
-    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     std::getline(std::cin, phrase);
 
     customer.setName(name);
@@ -72,7 +78,37 @@ void Menu::registerCustomer()
     getUserInput();
 }
 
-void Menu::registerComponent() {}
+void Menu::registerComponent() 
+{
+    Component component;
+
+    std::string type, name, uniqueID;
+
+    Menu::clearScreen();
+
+    std::cout << "Enter Component Type: ";
+    std::cin >> type;
+
+    std::cout << "Enter Component Name: ";
+    std::cin >> name;
+
+    std::cout << "Enter Unique ID: ";
+    std::cin >> uniqueID;
+    Menu::cinIgnore();
+
+    component.setType(type);
+    component.setName(name);
+    component.setUniqueID(uniqueID);
+
+    std::cout << "\nComponent Information:\n";
+    std::cout << "Type: " << component.getType() << "\n";
+    std::cout << "Name: " << component.getName() << "\n";
+    std::cout << "Unique ID: " << component.getUniqueID() << "\n";
+
+    m_db->saveComponent(component);
+
+    getUserInput();
+}
 
 void Menu::simulateAlarm()
 {
@@ -84,7 +120,7 @@ void Menu::start()
     while (true)
     {
         clearScreen();
-        std::cout << "      Larmsystem\n"
+        std::cout << "   Alarm Management\n"
                      "----------------------\n"
                      "1. Register Customer\n"
                      "2. Register Component\n"

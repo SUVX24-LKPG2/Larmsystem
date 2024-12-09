@@ -11,6 +11,7 @@ private:
     std::unique_ptr<Database> m_db;
     void clearScreen();
     void getUserInput();
+    void cinIgnore();
     void registerCustomer();
     void registerComponent();
     void simulateAlarm();
