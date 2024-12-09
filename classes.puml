@@ -1,0 +1,46 @@
+@startuml classes
+
+abstract class Database {
+    + saveCustomer(): Customer[] <<abstract>>
+    + saveComponent(): Component[] <<abstract>>
+    + logAlarmEvent(): AlarmEvent[] <<abstract>>
+    + getCustomers(): List<Customer> <<abstract>>
+    + ~Database() <<abstract>>
+}
+
+class JSONDatabase extends Database {
+    + saveCustomer(): Customer[] <<override>>
+    + saveComponent(): Component[] <<override>>
+    + logAlarmEvent(): AlarmEvent[] <<override>>
+    + getCustomers(): List<Customer> <<override>>
+}
+
+class SQLiteDatabase extends Database {
+    + saveCustomer(): Customer[] <<override>>
+    + saveComponent(): Component[] <<override>>
+    + logAlarmEvent(): AlarmEvent[] <<override>>
+    + getCustomers(): List<Customer>  <<override>>
+}
+
+class Customer {
+    - name: String
+    - username: String
+    - pincode: int
+    - tagID: String
+    - verificationPhrase: String
+}
+
+class Component {
+    - type: String
+    - name: String
+    - uniqueID: String
+}
+
+class AlarmEvent {
+    - alarmType: String
+    - alarmDate: Date
+    - alarmTime: Time
+    - alarmMessage: String
+}
+
+@enduml
