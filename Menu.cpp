@@ -34,31 +34,48 @@ void Menu::getUserInput()
 void Menu::registerCustomer()
 {
     // std::unique_ptr<Customer> customer = std::make_unique<Customer>();
-    
-    std::vector<Customer> customers;
-    char choice;
-    do {
-        Menu::clearScreen();
-        std::cout << "Enter Customer name: ";
-        std::cin.ignore();
-        std::getline(std::cin, name);
-        std::cout << "Enter Customer Address: ";
-        std::getline(std::cin, address);
+    Customer customer;
 
-        Customer customer(name, address);
-        customers.push_back(customer);
+    std::string name, address, phrase;
+    int pin, tagId;
 
-        std::cout << "Customer added successfully with ID: " << customer.getCustomerId() << "\n";
+    std::cout << "Enter Customer Name: ";
+    std::getline(std::cin, name);
 
-        std::cout << "Do you want to add another customer? (y/n): ";
-        std::cin >> choice;
-        } while (choice == 'y' || choice == 'Y');
+    std::cout << "Enter Customer Address: ";
+    std::getline(std::cin, address);
+
+    std::cout << "Enter PIN Code: ";
+    std::cin >> pin;
+
+    std::cout << "Enter Tag ID: ";
+    std::cin >> tagId;
+    std::cin.ignore();
+
+    std::cout << "Enter Verification Phrase: ";
+    std::getline(std::cin, phrase);
+
+    customer.setName(name);
+    customer.setCity(address);
+    customer.setPin(pin);
+    customer.setTagId(tagId);
+    customer.setVerificationPhrase(phrase);
+
+    std::cout << "\nCustomer Information:\n";
+    std::cout << "ID: " << customer.getId() << "\n";
+    std::cout << "Name: " << customer.getName() << "\n";
+    std::cout << "Address: " << customer.getCity() << "\n";
+    std::cout << "PIN Code: " << customer.getPin() << "\n";
+    std::cout << "Tag ID: " << customer.getTagId() << "\n";
+    std::cout << "Verification Phrase: " << customer.getVerificationPhrase() << "\n"; 
+
+    m_db->saveCustomer(customer);
 
 }
 
 void Menu::registerComponent()
 {
-    // code
+    
 }
 
 void Menu::simulateAlarm()

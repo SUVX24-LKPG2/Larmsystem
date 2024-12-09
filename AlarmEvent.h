@@ -24,6 +24,7 @@ public:
     void setAlarmTime(const tm& time);
     string getAlarmMessage() const;
     void setAlarmMessage(const string& Message);
+
 };
 
 #endif

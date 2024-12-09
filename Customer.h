@@ -31,8 +31,8 @@ public:
     void setName(const std::string& name) { customerName = name; }
     void setCity(const std::string& city) { adress = city; }
     void setPin(int pinCode) { pin = pinCode; }
-    void setName(int tag) { tagId = tag; }
-    void setCity(const std::string& phrase) { verificationPhrase = phrase; }
+    void setTagId(int tag) { tagId = tag; }
+    void setVerificationPhrase(const std::string& phrase) { verificationPhrase = phrase; }
 };
 
 int CustomerId = 1;
