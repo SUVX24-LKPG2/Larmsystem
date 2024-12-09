@@ -1,13 +1,13 @@
 #include "Menu.h"
-#include "Customer.h"
 
 #include <iostream>
+#include <limits>
 #include <memory>
 #include <string>
 #include <string_view>
 #include <vector>
-#include <limits>
 
+#include "Customer.h"
 #include "Database.h"
 
 #ifdef _WIN32
@@ -70,18 +70,14 @@ void Menu::registerCustomer()
     std::cout << "Address: " << customer.getCity() << "\n";
     std::cout << "PIN Code: " << customer.getPin() << "\n";
     std::cout << "Tag ID: " << customer.getTagId() << "\n";
-    std::cout << "Verification Phrase: " << customer.getVerificationPhrase() << "\n"; 
+    std::cout << "Verification Phrase: " << customer.getVerificationPhrase() << "\n";
 
     m_db->saveCustomer(customer);
 
     getUserInput();
-
 }
 
-void Menu::registerComponent()
-{
-    
-}
+void Menu::registerComponent() {}
 
 void Menu::simulateAlarm()
 {

@@ -6,7 +6,6 @@
 #include <string_view>
 #include <vector>
 
-#include "Database.h"
 #include "nlohmann/json.hpp"
 
 using json = nlohmann::json;
@@ -32,7 +31,7 @@ void DatabaseJson::saveCustomer(const Customer& customer)
         {"city", customer.getCity()},   {"pin", customer.getPin()},
         {"tagId", customer.getTagId()}, {"verificationPhrase", customer.getVerificationPhrase()}};
     j["customers"].push_back(custJson);
-    
+
     std::ofstream outputFile(getFilename());
     if (outputFile.is_open())
     {
