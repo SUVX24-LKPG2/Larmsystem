@@ -75,7 +75,4 @@ std::vector<Customer> DatabaseJson::getCustomers()
     return {};
 }
 
-DatabaseJson::~DatabaseJson()
-{
-    // Destructor
-}
+DatabaseJson::~DatabaseJson() {}
