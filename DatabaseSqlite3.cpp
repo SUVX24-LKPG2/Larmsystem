@@ -23,7 +23,4 @@ std::vector<Customer> getCustomers()
 {
     return {};
 }
-DatabaseSqlite3::~DatabaseSqlite3()
-{
-    // code
-}
+DatabaseSqlite3::~DatabaseSqlite3() {}

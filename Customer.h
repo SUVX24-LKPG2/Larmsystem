@@ -19,6 +19,7 @@ public:
    
    
     Customer() : customerId(nextId++), customerName(""), adress(""), pin(0), tagId(0), verificationPhrase("")  {}
+    ~Customer() {}
 
     int getId() const { return customerId; }
     std::string getName() const { return customerName; }
