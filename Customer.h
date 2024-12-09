@@ -15,7 +15,7 @@ static int nextId;
 public: 
     Customer(int customerId, std::string customerName,std::string adress,int pin, int tagId, std::string verificationPhrase); 
     Customer(); 
-    ~Customer() {}
+    ~Customer();
 
     int getId() const; 
     std::string getName() const; 
@@ -29,6 +29,6 @@ public:
     void setCity(const std::string& city);
     void setPin(int pinCode);
     void setTagId(int tag);
-    void setVerificationPhrase(const std::string& phrase) { verificationPhrase = phrase; }
+    void setVerificationPhrase(const std::string& phrase);
 };
 #endif
