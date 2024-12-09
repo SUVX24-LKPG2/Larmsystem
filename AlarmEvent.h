@@ -1,11 +1,13 @@
 #ifndef ALARMEVENT_H
 #define ALARMEVENT_H
-#include <string>
+
 #include <ctime>
+#include <string>
 using namespace std;
+
 class AlarmEvent
 {
-private: 
+private:
     string alarmType;
     tm alarmDate;
     tm alarmTime;
@@ -22,7 +24,6 @@ public:
     void setAlarmTime(const tm& time);
     string getAlarmMessage() const;
     void setAlarmMessage(const string& Message);
-
-}
+};
 
 #endif
