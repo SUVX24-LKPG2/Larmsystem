@@ -1,3 +1,5 @@
+#ifndef COMPONENT_H
+#define COMPONENT_H
 #include <iostream>
 
 class Component{
@@ -15,3 +17,4 @@ class Component{
         void setUniqueID(std::string uniqueID) { this->uniqueID = uniqueID; }
         ~Component() {}
 };
+#endif

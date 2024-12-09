@@ -23,6 +23,6 @@ public:
     string getAlarmMessage() const;
     void setAlarmMessage(const string& Message);
 
-}
+};
 
 #endif
