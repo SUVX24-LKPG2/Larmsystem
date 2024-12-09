@@ -15,4 +15,5 @@ class Database {
         virtual void logAlarmEvent(const AlarmEvent& alarmevent) = 0;
         virtual std::list <Customer> getCustomers() = 0;
         virtual ~Database();
+        std::string getFilename() const { return filename; }
 };
