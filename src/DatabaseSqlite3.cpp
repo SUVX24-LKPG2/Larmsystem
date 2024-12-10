@@ -94,8 +94,8 @@ void DatabaseSqlite3::saveComponent(const Component& component)
     }
 
     // Insert customer data
-    sql = "INSERT INTO components (type, name, unique_id) VALUES ('" + component.getType() + "', '" +
-          component.getName() + "', '" + component.getUniqueID() + "');";
+    sql = "INSERT INTO components (type, name, unique_id) VALUES ('" + component.getType() +
+          "', '" + component.getName() + "', '" + component.getUniqueID() + "');";
 
     rc = sqlite3_exec(db, sql.c_str(), nullptr, 0, &zErrMsg);
     if (rc != SQLITE_OK)

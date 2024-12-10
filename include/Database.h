@@ -1,13 +1,13 @@
 #ifndef DATABASE_H
 #define DATABASE_H
 
-#include "Customer.h"
-#include "Component.h"
-#include "AlarmEvent.h"
-
 #include <iostream>
 #include <list>
 #include <vector>
+
+#include "AlarmEvent.h"
+#include "Component.h"
+#include "Customer.h"
 
 class Database
 {

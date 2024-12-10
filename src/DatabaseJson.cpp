@@ -29,7 +29,7 @@ void DatabaseJson::saveCustomer(const Customer& customer)
     }
 
     // Increment the last_id and add the new customer to the json object
-    int newId = j["last_id"].get<int>() + 1;
+    int newId    = j["last_id"].get<int>() + 1;
     j["last_id"] = newId;
 
     // Add the new customer to the json object
@@ -70,7 +70,7 @@ void DatabaseJson::saveComponent(const Component& component)
     }
 
     // Increment the last_id and add the new customer to the json object
-    int newId = j["last_id"].get<int>() + 1;
+    int newId    = j["last_id"].get<int>() + 1;
     j["last_id"] = newId;
 
     // Add the new customer to the json object
