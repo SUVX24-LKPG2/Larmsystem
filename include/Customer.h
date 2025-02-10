@@ -4,13 +4,12 @@
 
 class Customer
 {
-private:
     std::string customerName;
     std::string address;
     int pin;
     int tagId;
     std::string verificationPhrase;
-    int customerId;
+    int customerId{};
 
 public:
     Customer(std::string customerName, std::string address, int pin, int tagId,

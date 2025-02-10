@@ -39,10 +39,10 @@ void Menu::registerCustomer()
     std::string name, address, phrase;
     int pin, tagId;
 
-    Menu::clearScreen();
+    clearScreen();
 
     std::cout << "Enter Customer Name: ";
-    Menu::cinIgnore();
+    cinIgnore();
     std::getline(std::cin, name);
 
     std::cout << "Enter Customer Address: ";
@@ -50,11 +50,11 @@ void Menu::registerCustomer()
 
     std::cout << "Enter PIN Code: ";
     std::cin >> pin;
-    Menu::cinIgnore();
+    cinIgnore();
 
     std::cout << "Enter Tag ID: ";
     std::cin >> tagId;
-    Menu::cinIgnore();
+    cinIgnore();
 
     std::cout << "Enter Verification Phrase: ";
     std::getline(std::cin, phrase);
@@ -84,7 +84,7 @@ void Menu::registerComponent()
 
     std::string type, name, uniqueID;
 
-    Menu::clearScreen();
+    clearScreen();
 
     std::cout << "Enter Component Type: ";
     std::cin >> type;
@@ -94,7 +94,7 @@ void Menu::registerComponent()
 
     std::cout << "Enter Unique ID: ";
     std::cin >> uniqueID;
-    Menu::cinIgnore();
+    cinIgnore();
 
     component.setType(type);
     component.setName(name);

@@ -11,7 +11,7 @@ using json = nlohmann::json;
 class DatabaseJson : public Database
 {
 public:
-    DatabaseJson(const std::string& db);
+    explicit DatabaseJson(const std::string& db);
     ~DatabaseJson();
     void saveCustomer(const Customer& customer) override;
     void saveComponent(const Component& component) override;

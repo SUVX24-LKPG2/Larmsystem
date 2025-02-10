@@ -15,8 +15,7 @@ DatabaseJson::DatabaseJson(const std::string& db) : Database{db} {}
 void DatabaseJson::saveCustomer(const Customer& customer)
 {
     json j;
-    std::ifstream inputFile(getFilename());
-    if (inputFile.is_open())
+    if (std::ifstream inputFile(getFilename()); inputFile.is_open())
     {
         inputFile >> j;
         inputFile.close();
@@ -56,8 +55,7 @@ void DatabaseJson::saveCustomer(const Customer& customer)
 void DatabaseJson::saveComponent(const Component& component)
 {
     json j;
-    std::ifstream inputFile(getFilename());
-    if (inputFile.is_open())
+    if (std::ifstream inputFile(getFilename()); inputFile.is_open())
     {
         inputFile >> j;
         inputFile.close();
@@ -103,4 +101,4 @@ std::vector<Customer> DatabaseJson::getCustomers()
     return {};
 }
 
-DatabaseJson::~DatabaseJson() {}
+DatabaseJson::~DatabaseJson() = default;

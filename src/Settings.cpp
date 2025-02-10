@@ -5,7 +5,7 @@
 
 #include "nlohmann/json.hpp"
 
-Settings::Settings() {}
+Settings::Settings() = default;
 
 bool Settings::loadSettings(const std::string& filename)
 {

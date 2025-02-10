@@ -10,9 +10,8 @@ void DatabaseSqlite3::saveCustomer(const Customer& customer)
 {
     sqlite3* db;
     char* zErrMsg = 0;
-    int rc;
 
-    rc = sqlite3_open(getFilename().c_str(), &db);
+    int rc = sqlite3_open(getFilename().c_str(), &db);
 
     if (rc)
     {
@@ -118,4 +117,4 @@ std::vector<Customer> DatabaseSqlite3::getCustomers()
 {
     return {};
 }
-DatabaseSqlite3::~DatabaseSqlite3() {}
+DatabaseSqlite3::~DatabaseSqlite3() = default;

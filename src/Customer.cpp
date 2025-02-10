@@ -1,20 +1,21 @@
 #include "Customer.h"
 
 #include <string>
+#include <utility>
 
 Customer::Customer(std::string customerName, std::string address, int pin, int tagId,
                    std::string verificationPhrase)
-    : customerName(customerName),
-      address(address),
+    : customerName(std::move(customerName)),
+      address(std::move(address)),
       pin(pin),
       tagId(tagId),
-      verificationPhrase(verificationPhrase)
+      verificationPhrase(std::move(verificationPhrase))
 {
 }
 
 Customer::Customer() : customerName(""), address(""), pin(0), tagId(0), verificationPhrase("") {}
 
-Customer::~Customer() {}
+Customer::~Customer() = default;
 
 int Customer::getId() const
 {

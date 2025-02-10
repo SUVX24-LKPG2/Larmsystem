@@ -15,7 +15,7 @@ private:
     std::string filename;
 
 public:
-    Database(std::string filename) : filename(filename) {}
+    explicit Database(std::string filename) : filename(filename) {}
     virtual ~Database() {}
     virtual void saveCustomer(const Customer& customer)      = 0;
     virtual void saveComponent(const Component& component)   = 0;

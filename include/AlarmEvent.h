@@ -7,7 +7,6 @@ using namespace std;
 
 class AlarmEvent
 {
-private:
     string alarmType;
     tm alarmDate;
     tm alarmTime;
@@ -15,7 +14,7 @@ private:
 
 public:
     AlarmEvent();
-    AlarmEvent(const string& type, const tm& date, const tm& time, const string& message);
+    AlarmEvent(string  type, const tm& date, const tm& time, string  message);
     string getAlarmType() const;
     void setAlarmType(const string& type);
     tm getAlarmDate() const;

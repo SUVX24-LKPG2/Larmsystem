@@ -1,5 +1,7 @@
 #include "AlarmEvent.h"
 
+#include <utility>
+
 AlarmEvent::AlarmEvent() : alarmType(""), alarmMessage("")
 {
     std::tm defaultTime = {};
@@ -7,9 +9,9 @@ AlarmEvent::AlarmEvent() : alarmType(""), alarmMessage("")
     alarmTime           = defaultTime;
 }
 
-AlarmEvent::AlarmEvent(const std::string& type, const std::tm& date, const std::tm& time,
-                       const std::string& message)
-    : alarmType(type), alarmDate(date), alarmTime(time), alarmMessage(message)
+AlarmEvent::AlarmEvent(std::string  type, const std::tm& date, const std::tm& time,
+                       std::string  message)
+    : alarmType(std::move(type)), alarmDate(date), alarmTime(time), alarmMessage(std::move(message))
 {
 }
 
