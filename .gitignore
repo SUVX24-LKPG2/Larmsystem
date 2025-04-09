@@ -21,3 +21,8 @@ build/
 !Makefile
 !*.md
 !.gitignore
+
+.vscode
+.idea
+build
+cmake-build-debug
